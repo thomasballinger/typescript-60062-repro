@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "b": "file:b",
+    "c": "file:c",
+    "typescript": "^5.6.2"
+  }
+}
