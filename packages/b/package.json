@@ -1,9 +1,9 @@
 {
   "name": "@ballingt-tmp/b",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "dependencies": {
-    "@ballingt-tmp/d": "0.0.1",
+    "@ballingt-tmp/d": "0.0.2",
     "typescript": "^5.6.2"
   },
   "exports": {

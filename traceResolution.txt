@@ -1,0 +1,97 @@
+!!! This library has messed up types: it tries to import its dependencies as CJS when imported as ESM
+======== Resolving module '@ballingt-tmp/b' from '/Users/tomb/typescript-repro/a.ts'. ========
+Explicitly specified module resolution kind: 'Bundler'.
+Resolving in CJS mode with conditions 'import', 'types'.
+Found 'package.json' at '/Users/tomb/typescript-repro/package.json'.
+Loading module '@ballingt-tmp/b' from 'node_modules' folder, target file types: TypeScript, JavaScript, Declaration, JSON.
+Searching all ancestor node_modules directories for preferred extensions: TypeScript, Declaration.
+Found 'package.json' at '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/package.json'.
+Entering conditional exports.
+Matched 'exports' condition 'import'.
+Entering conditional exports.
+Matched 'exports' condition 'types'.
+Using 'exports' subpath '.' with target './dist/esm/index.d.ts'.
+File '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/index.d.ts' exists - use it as a name resolution result.
+'package.json' does not have a 'peerDependencies' field.
+Resolved under condition 'types'.
+Exiting conditional exports.
+Resolved under condition 'import'.
+Exiting conditional exports.
+Resolving real path for '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/index.d.ts', result '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/index.d.ts'.
+======== Module name '@ballingt-tmp/b' was successfully resolved to '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/index.d.ts' with Package ID '@ballingt-tmp/b/dist/esm/index.d.ts@0.0.2'. ========
+
+!!! This library is set up more conventionally: it tries to import its dependencies as ESM when imported as ESM
+======== Resolving module '@ballingt-tmp/c' from '/Users/tomb/typescript-repro/a.ts'. ========
+Explicitly specified module resolution kind: 'Bundler'.
+Resolving in CJS mode with conditions 'import', 'types'.
+File '/Users/tomb/typescript-repro/package.json' exists according to earlier cached lookups.
+Loading module '@ballingt-tmp/c' from 'node_modules' folder, target file types: TypeScript, JavaScript, Declaration, JSON.
+Searching all ancestor node_modules directories for preferred extensions: TypeScript, Declaration.
+Found 'package.json' at '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/package.json'.
+Entering conditional exports.
+Matched 'exports' condition 'import'.
+Entering conditional exports.
+Matched 'exports' condition 'types'.
+Using 'exports' subpath '.' with target './dist/esm/index.d.ts'.
+File '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/index.d.ts' exists - use it as a name resolution result.
+'package.json' does not have a 'peerDependencies' field.
+Resolved under condition 'types'.
+Exiting conditional exports.
+Resolved under condition 'import'.
+Exiting conditional exports.
+Resolving real path for '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/index.d.ts', result '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/index.d.ts'.
+======== Module name '@ballingt-tmp/c' was successfully resolved to '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/index.d.ts' with Package ID '@ballingt-tmp/c/dist/esm/index.d.ts@0.0.2'. ========
+Found 'package.json' at '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/package.json'.
+
+!!! This first resolution gets cached
+======== Resolving module '@ballingt-tmp/d' from '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/index.d.ts'. ========
+Explicitly specified module resolution kind: 'Bundler'.
+Resolving in CJS mode with conditions 'require', 'types'.
+File '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/package.json' exists according to earlier cached lookups.
+Loading module '@ballingt-tmp/d' from 'node_modules' folder, target file types: TypeScript, JavaScript, Declaration, JSON.
+Searching all ancestor node_modules directories for preferred extensions: TypeScript, Declaration.
+Directory '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/esm/node_modules' does not exist, skipping all lookups in it.
+Scoped package detected, looking in 'ballingt-tmp__d'
+Directory '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/dist/node_modules' does not exist, skipping all lookups in it.
+Scoped package detected, looking in 'ballingt-tmp__d'
+Directory '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/b/node_modules' does not exist, skipping all lookups in it.
+Scoped package detected, looking in 'ballingt-tmp__d'
+Directory '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/node_modules' does not exist, skipping all lookups in it.
+Scoped package detected, looking in 'ballingt-tmp__d'
+Found 'package.json' at '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/d/package.json'.
+Entering conditional exports.
+Saw non-matching condition 'import'.
+Matched 'exports' condition 'require'.
+Entering conditional exports.
+Matched 'exports' condition 'types'.
+Using 'exports' subpath '.' with target './dist/commonjs/index.d.ts'.
+File '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/d/dist/commonjs/index.d.ts' exists - use it as a name resolution result.
+'package.json' does not have a 'peerDependencies' field.
+Resolved under condition 'types'.
+Exiting conditional exports.
+Resolved under condition 'require'.
+Exiting conditional exports.
+Resolving real path for '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/d/dist/commonjs/index.d.ts', result '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/d/dist/commonjs/index.d.ts'.
+======== Module name '@ballingt-tmp/d' was successfully resolved to '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/d/dist/commonjs/index.d.ts' with Package ID '@ballingt-tmp/d/dist/commonjs/index.d.ts@0.0.2'. ========
+Found 'package.json' at '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/d/dist/commonjs/package.json'.
+Found 'package.json' at '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/package.json'.
+
+!!! This resolution incorrectly uses the cached value
+======== Resolving module '@ballingt-tmp/d' from '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/index.d.ts'. ========
+Explicitly specified module resolution kind: 'Bundler'.
+Resolving in CJS mode with conditions 'import', 'types'.
+File '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/package.json' exists according to earlier cached lookups.
+Loading module '@ballingt-tmp/d' from 'node_modules' folder, target file types: TypeScript, JavaScript, Declaration, JSON.
+Searching all ancestor node_modules directories for preferred extensions: TypeScript, Declaration.
+Directory '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/esm/node_modules' does not exist, skipping all lookups in it.
+Scoped package detected, looking in 'ballingt-tmp__d'
+Directory '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/dist/node_modules' does not exist, skipping all lookups in it.
+Scoped package detected, looking in 'ballingt-tmp__d'
+Directory '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/c/node_modules' does not exist, skipping all lookups in it.
+Scoped package detected, looking in 'ballingt-tmp__d'
+Resolution for module '@ballingt-tmp/d' was found in cache from location '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp'.
+======== Module name '@ballingt-tmp/d' was successfully resolved to '/Users/tomb/typescript-repro/node_modules/@ballingt-tmp/d/dist/commonjs/index.d.ts' with Package ID '@ballingt-tmp/d/dist/commonjs/index.d.ts@0.0.2'. ========
+File '/Users/tomb/typescript-repro/node_modules/typescript/lib/package.json' does not exist.
+Found 'package.json' at '/Users/tomb/typescript-repro/node_modules/typescript/package.json'.
+
+(snip >8 removed things like '@typescript/lib-es2023')

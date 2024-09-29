@@ -1,8 +1,8 @@
 {
   "type": "module",
   "dependencies": {
-    "@ballingt-tmp/b": "0.0.1",
-    "@ballingt-tmp/c": ".0.0.1",
+    "@ballingt-tmp/b": "0.0.2",
+    "@ballingt-tmp/c": "0.0.2",
     "typescript": "^5.6.2"
   }
 }
